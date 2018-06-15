@@ -21,12 +21,12 @@ git clone -b master https://github.com/f1xpl/aasdk.git
 mkdir aasdk_build
 cd aasdk_build
 cmake -DCMAKE_BUILD_TYPE=Release ../aasdk
-make -j4
+make -j2
 
 # Building ilclient firmware
 whiptail --title "OpenAuto RPi" --msgbox "Building ilclient firmware" 8 78
 cd /opt/vc/src/hello_pi/libs/ilclient
-make -j4
+make -j2
 
 cd
 
@@ -37,7 +37,7 @@ git clone -b master https://github.com/f1xpl/openauto.git
 mkdir openauto_build
 cd openauto_build
 cmake -DCMAKE_BUILD_TYPE=Release -DRPI3_BUILD=TRUE -DAASDK_INCLUDE_DIRS="/home/pi/aasdk/include" -DAASDK_LIBRARIES="/home/pi/aasdk/lib/libaasdk.so" -DAASDK_PROTO_INCLUDE_DIRS="/home/pi/aasdk_build" -DAASDK_PROTO_LIBRARIES="/home/pi/aasdk/lib/libaasdk_proto.so" ../openauto
-make -j4
+make -j2
 
 # Enabling OpenAuto autostart
 echo "sudo /home/pi/openauto/bin/autoapp" >> /home/pi/.config/lxsession/LXDE-pi/autostart
